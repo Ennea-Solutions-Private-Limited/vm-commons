@@ -1,0 +1,17 @@
+package com.ennea.enneaservices.model.porter.webhook;
+
+import com.fasterxml.jackson.databind.PropertyNamingStrategies;
+import com.fasterxml.jackson.databind.annotation.JsonNaming;
+import lombok.Data;
+
+@Data
+@JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
+public class PorterWebhookDriverDetails {
+
+    private String driverName;
+
+    private String vehicleNumber;
+
+    private String mobile;
+
+}
