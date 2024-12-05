@@ -3,7 +3,6 @@ package com.ennea.enneaservices.exceptions;
 
 import com.ennea.enneaservices.model.Dto.ApiError;
 import jakarta.validation.ConstraintViolationException;
-import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.core.convert.ConversionFailedException;
 import org.springframework.http.HttpHeaders;
@@ -25,7 +24,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 @ControllerAdvice
 public class CustomEnneaExceptionHandler extends ResponseEntityExceptionHandler {
@@ -61,7 +59,7 @@ public class CustomEnneaExceptionHandler extends ResponseEntityExceptionHandler 
                                                                       constraintViolation.getPropertyPath(),
                                                                       constraintViolation.getInvalidValue(),
                                                                       constraintViolation.getMessage()))
-                            .collect(Collectors.toList()));
+                            .toList());
 
         apiError.setMessage("Validation error - " + messages);
         apiError.addValidationErrors(ex.getConstraintViolations());

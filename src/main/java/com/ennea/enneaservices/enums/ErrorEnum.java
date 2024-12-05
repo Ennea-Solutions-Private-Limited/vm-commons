@@ -1,5 +1,8 @@
 package com.ennea.enneaservices.enums;
 
+import lombok.Getter;
+
+@Getter
 public enum ErrorEnum {
     FORBIDDEN("Access Denied", "ERR101"),
     USER_SESSION_EXPIRED("Session expired, sign in again", "ERR102"),
@@ -158,14 +161,6 @@ public enum ErrorEnum {
     ErrorEnum(String message, String code) {
         this.message = message;
         this.code = code;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public String getCode() {
-        return code;
     }
 
 }

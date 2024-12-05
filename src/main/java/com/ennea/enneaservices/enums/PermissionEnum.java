@@ -1,5 +1,8 @@
 package com.ennea.enneaservices.enums;
 
+import lombok.Getter;
+
+@Getter
 public enum PermissionEnum {
     GET("Read"),
     POST("Create"),
@@ -9,10 +12,6 @@ public enum PermissionEnum {
 
     PermissionEnum(String type) {
         this.type = type;
-    }
-
-    public String getType() {
-        return type;
     }
 
 }

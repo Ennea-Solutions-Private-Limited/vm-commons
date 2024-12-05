@@ -76,7 +76,7 @@ public class IngestionUtils {
             }
         } else{
             Optional<District> tmp = districtRepository.findByName(district, state);
-            if(!tmp.isPresent()){
+            if(tmp.isEmpty()){
                 warn(when + ": Unknown district " + district);
                 dist = districtRepository.findByName(Constants.UNKNOWN_DISTRICT, Constants.UNKNOWN_STATE).get();
                 missing_district_cache.put(district, dist);

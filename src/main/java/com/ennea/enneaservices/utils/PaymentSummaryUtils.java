@@ -88,8 +88,7 @@ public class PaymentSummaryUtils {
                 .append(payment.getCollectionMetadata().getMode())
                 .append("</h4>");
             message.append("<h4 style='margin:0;'> Invoices : ")
-                .append(invoiceNumbers.stream()
-                            .collect(Collectors.joining(",")))
+                .append(String.join(",", invoiceNumbers))
                 .append("</h4>");
         }
         return message.toString();
@@ -130,7 +129,7 @@ public class PaymentSummaryUtils {
             .append(payment.getCollectionMetadata().getMode())
             .append("</h4>");
         message.append("<h4 style='margin:0;'> Invoices : ")
-            .append(invoiceNumbers.stream().collect(Collectors.joining(",")))
+            .append(String.join(",", invoiceNumbers))
             .append("</h4>");
         return message.toString();
     }

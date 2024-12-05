@@ -1,5 +1,7 @@
 package com.ennea.enneaservices.enums;
 
+import lombok.Getter;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -63,6 +65,7 @@ public enum ParserEnum {
         }
     }
 
+    @Getter
     private final String templateName;
     private final String[] fields;
 
@@ -73,10 +76,6 @@ public enum ParserEnum {
 
     public static ParserEnum findByTemplateName(String key) {
         return map.get(key);
-    }
-
-    public String getTemplateName() {
-        return templateName;
     }
 
     public List<String> getFields() {

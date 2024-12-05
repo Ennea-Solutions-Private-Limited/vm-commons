@@ -199,8 +199,7 @@ public class InvoiceProcessingUtil {
         Map<String, Integer> orderStatusToStatusId = allOrderStatuses.stream()
             .collect(Collectors.toMap(OrderStatus::getStatus, OrderStatus::getId));
         OrderStatus cancelledStatus = allOrderStatuses.stream().filter(
-            orderStatus -> orderStatus.getStatus().equalsIgnoreCase(Constants.ORDER_CANCELLED)).collect(
-            Collectors.toList()).get(0);
+            orderStatus -> orderStatus.getStatus().equalsIgnoreCase(Constants.ORDER_CANCELLED)).toList().get(0);
         final List<OrderInvoice> orderInvoices = orderInvoiceRepository
             .findAllByProcessedAndInvoiceOrderStatusAndSupplier(false,
                                                                 Constants.MARG_INVOICE_ORDER_STATUS_IN_TRANSIT,

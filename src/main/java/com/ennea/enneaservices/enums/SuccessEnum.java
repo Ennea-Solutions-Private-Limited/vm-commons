@@ -1,5 +1,8 @@
 package com.ennea.enneaservices.enums;
 
+import lombok.Getter;
+
+@Getter
 public enum SuccessEnum {
     SUCCESS("Success"),
     SUPPLIER_ASSOCIATION_REQUEST_SUCCESS("Supplier association request success"),
@@ -101,10 +104,6 @@ public enum SuccessEnum {
 
     SuccessEnum(String message) {
         this.message = message;
-    }
-
-    public String getMessage() {
-        return message;
     }
 
 }

@@ -1,5 +1,8 @@
 package com.ennea.enneaservices.enums;
 
+import lombok.Getter;
+
+@Getter
 public enum PrivilegeEnum {
 
     //Dashboard
@@ -437,26 +440,6 @@ public enum PrivilegeEnum {
         this.methodName = methodName;
         this.privilegeCode = code;
         this.parentPrivilege = parentPrivilege;
-    }
-
-    public String getType() {
-        return type;
-    }
-
-    public String getClassName() {
-        return className;
-    }
-
-    public String getMethodName() {
-        return methodName;
-    }
-
-    public String getPrivilegeCode() {
-        return privilegeCode;
-    }
-
-    public String getParentPrivilege() {
-        return parentPrivilege;
     }
 
 }

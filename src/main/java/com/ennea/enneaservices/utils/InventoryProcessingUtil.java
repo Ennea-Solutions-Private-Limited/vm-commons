@@ -112,14 +112,14 @@ public class InventoryProcessingUtil {
         for(String string : token){
             if(string.length() >= 3 && previousToken.isEmpty()){
                 finalPrefixes.add(string.substring(0, 3));
-            } else if(string.length() >= 3 && !previousToken.isEmpty()){
+            } else if(string.length() >= 3){
                 finalPrefixes.add(string.substring(0, 3));
                 String addedString = previousToken + string.substring(0, 3 - previousToken.length());
                 finalPrefixes.add(addedString);
                 previousToken = "";
-            } else if(string.length() < 3 && previousToken.isEmpty()){
+            } else if(previousToken.isEmpty()){
                 previousToken = string;
-            } else if(string.length() < 3 && !previousToken.isEmpty()){
+            } else{
                 String addedTokens = previousToken + string;
                 if(addedTokens.length() >= 3){
                     finalPrefixes.add(addedTokens.substring(0, 3));

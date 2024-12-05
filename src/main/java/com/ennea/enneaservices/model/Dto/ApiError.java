@@ -2,6 +2,8 @@ package com.ennea.enneaservices.model.Dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.validation.ConstraintViolation;
+import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.validator.internal.engine.path.PathImpl;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.FieldError;
@@ -12,13 +14,19 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
+@Getter
 public class ApiError {
+    @Setter
     private HttpStatus status;
+    @Setter
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy hh:mm:ss")
     private LocalDateTime timestamp;
+    @Setter
     private String message;
+    @Setter
     private String debugMessage;
     private List<ApiSubError> subErrors;
+    @Setter
     private String errorCode;
 
     private ApiError() {
@@ -56,42 +64,6 @@ public class ApiError {
         this.status = status;
         this.message = message;
         this.debugMessage = ex.getLocalizedMessage();
-    }
-
-    public HttpStatus getStatus() {
-        return status;
-    }
-
-    public void setStatus(HttpStatus status) {
-        this.status = status;
-    }
-
-    public LocalDateTime getTimestamp() {
-        return timestamp;
-    }
-
-    public void setTimestamp(LocalDateTime timestamp) {
-        this.timestamp = timestamp;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
-    }
-
-    public String getDebugMessage() {
-        return debugMessage;
-    }
-
-    public void setDebugMessage(String debugMessage) {
-        this.debugMessage = debugMessage;
-    }
-
-    public List<ApiSubError> getSubErrors() {
-        return subErrors;
     }
 
     private void addSubError(ApiSubError subError) {
@@ -143,14 +115,6 @@ public class ApiError {
 
     public void addValidationErrors(Set<ConstraintViolation<?>> constraintViolations) {
         constraintViolations.forEach(this::addValidationError);
-    }
-
-    public String getErrorCode() {
-        return errorCode;
-    }
-
-    public void setErrorCode(String errorCode) {
-        this.errorCode = errorCode;
     }
 
 }

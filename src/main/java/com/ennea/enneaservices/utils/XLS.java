@@ -1,7 +1,6 @@
 package com.ennea.enneaservices.utils;
 
 import lombok.NoArgsConstructor;
-import org.apache.commons.compress.utils.FileNameUtils;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.*;
@@ -178,8 +177,7 @@ public class XLS {
     private void impl(String filepath, List<String> exclude, String fmt) {
         try {
             switch(fmt) {
-                case "xls" -> read_xls(filepath, exclude);
-                case "xlsx" -> read_xls(filepath, exclude);
+                case "xls", "xlsx" -> read_xls(filepath, exclude);
                 case "csv" -> read_csv(filepath, exclude, false);
                 case "tsv" -> read_csv(filepath, exclude, true);
             }
@@ -449,7 +447,6 @@ public class XLS {
                 for(int j = 0; j < values.size(); j++){
                     colMap.put(j, values.get(j));
                 }
-                continue;
             } else{
                 Map<String, String> record = new LinkedHashMap<>();
                 for(int j = 0; j < values.size(); j++){
